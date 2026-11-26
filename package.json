@@ -1,0 +1,24 @@
+{
+  "name": "medibox-gitops",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GitOps firmware rollout & fallback for the MediBox ESP32 fleet (WPF2, FH Campus Wien)",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "validate": "tsx scripts/validate-fleet.ts fleet",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.7",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.2"
+  }
+}

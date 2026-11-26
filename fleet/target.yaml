@@ -1,0 +1,7 @@
+# Desired state of the whole fleet (M4).
+# Changing spec.release in a commit is the ONLY way to start a rollout.
+# Rolling the fleet back (S1) = git revert of that commit.
+apiVersion: medibox.dev/v1
+kind: FleetTarget
+spec:
+  release: 1.0.0

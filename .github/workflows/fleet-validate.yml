@@ -1,0 +1,25 @@
+# M4: every change to the desired state is validated before it can be merged.
+# An invalid manifest fails this job and is therefore never rolled out.
+# (Runs on GitHub-hosted runners for now; the firmware pipeline in M7 will use
+#  a self-hosted runner on the Ubuntu machine.)
+name: fleet-validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - name: Validate fleet manifests
+        run: npm run validate

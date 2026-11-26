@@ -1,0 +1,14 @@
+# Device groups (M4). Every device is in exactly one group.
+# The rollout order is defined per release in releases/<version>.yaml (rollout.waves).
+apiVersion: medibox.dev/v1
+kind: DeviceGroups
+spec:
+  groups:
+    - name: canary
+      description: Gets every release first. Its result decides if the rollout continues.
+      devices:
+        - medibox-01
+    - name: rest
+      description: Updated only after the canary wave is healthy.
+      devices:
+        - medibox-02

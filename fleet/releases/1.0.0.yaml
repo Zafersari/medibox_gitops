@@ -1,0 +1,17 @@
+# Release manifest (M4). Normally created by the CI pipeline (M7) as a pull request.
+# The hash and signature below are PLACEHOLDERS until the firmware pipeline exists (step 5).
+apiVersion: medibox.dev/v1
+kind: FirmwareRelease
+metadata:
+  name: medibox-fw-1.0.0
+spec:
+  version: 1.0.0
+  artifact:
+    url: https://github.com/Zafersari/medibox-gitops/releases/download/fw-v1.0.0/medibox-1.0.0.bin
+    sha256: 479719198e4f56272ea979bc3a3358abc07be9bed1b2fe1c8c8f546754c89369
+    signature: UExBQ0VIT0xERVI=
+  rollout:
+    waves: [canary, rest]
+    healthDeadlineSeconds: 600
+    failureThreshold: 1
+  notes: Baseline firmware – temperature (DS18B20) and box-opened (reed switch) telemetry.

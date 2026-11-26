@@ -1,0 +1,15 @@
+{
+  "name": "@medibox/contract",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared contract: MQTT topics/payloads and GitOps fleet manifests (zod schemas + validation)",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  }
+}

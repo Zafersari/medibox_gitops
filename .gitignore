@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+*.log
+.env
+.env.*
+# never commit signing keys (M7) – only the public key belongs in the repo
+*.key
+*private*.pem
